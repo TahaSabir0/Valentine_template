@@ -1,0 +1,159 @@
+/* Main Styles & Screen Management */
+
+/* Screen Management */
+.screen {
+    display: none;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+}
+
+.screen.active {
+    display: flex;
+    animation: fadeIn var(--transition-slow);
+    opacity: 1;
+}
+
+.screen.exiting {
+    animation: fadeOut var(--transition-base);
+}
+
+/* Floating Petals Background */
+.petals-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--color-rose-pink);
+    border-radius: 50% 0 50% 0;
+    opacity: 0.6;
+    animation: fallPetal 10s linear infinite;
+}
+
+/* Generate random petals with different delays and positions */
+.petal:nth-child(1) { left: 5%; animation-delay: 0s; --drift: 30px; }
+.petal:nth-child(2) { left: 15%; animation-delay: 2s; --drift: -40px; }
+.petal:nth-child(3) { left: 25%; animation-delay: 4s; --drift: 50px; }
+.petal:nth-child(4) { left: 35%; animation-delay: 1s; --drift: -30px; }
+.petal:nth-child(5) { left: 45%; animation-delay: 3s; --drift: 40px; }
+.petal:nth-child(6) { left: 55%; animation-delay: 5s; --drift: -50px; }
+.petal:nth-child(7) { left: 65%; animation-delay: 2.5s; --drift: 35px; }
+.petal:nth-child(8) { left: 75%; animation-delay: 4.5s; --drift: -45px; }
+.petal:nth-child(9) { left: 85%; animation-delay: 1.5s; --drift: 25px; }
+.petal:nth-child(10) { left: 95%; animation-delay: 3.5s; --drift: -35px; }
+
+/* Vary sizes */
+.petal:nth-child(odd) {
+    width: 15px;
+    height: 15px;
+}
+
+.petal:nth-child(3n) {
+    width: 25px;
+    height: 25px;
+}
+
+/* Different colors */
+.petal:nth-child(2n) {
+    background: var(--color-soft-red);
+}
+
+.petal:nth-child(3n) {
+    background: var(--color-blush);
+}
+
+/* Loading State */
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: var(--gradient-romantic);
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid var(--color-blush);
+    border-top-color: var(--color-soft-red);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Focus Trap for Modals */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection Colors */
+::selection {
+    background: var(--color-rose-pink);
+    color: var(--color-white);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-gray-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-rose-pink);
+    border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-soft-red);
+}
+
+/* Print Styles */
+@media print {
+    .screen {
+        display: none !important;
+    }
+
+    #final-screen.active {
+        display: block !important;
+        background: white !important;
+    }
+
+    .petals-container,
+    .zoom-controls,
+    .dev-mode {
+        display: none !important;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .pin.locked {
+        opacity: 0.6;
+    }
+
+    .primary-btn {
+        border: 2px solid currentColor;
+    }
+}
