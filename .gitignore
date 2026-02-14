@@ -1,0 +1,14 @@
+# Personal media files (photos/videos) - don't commit these
+assets/memories/**/*.jpg
+assets/memories/**/*.jpeg
+assets/memories/**/*.png
+assets/memories/**/*.mp4
+assets/memories/**/*.mov
+assets/memories/**/*.webm
+
+# Keep the folder structure
+!assets/memories/**/.gitkeep
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+
+    <!-- Prevent social media previews -->
+    <meta name="robots" content="noindex, nofollow" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:description" content="" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Leaflet CSS -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/typography.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/landing.css" />
+    <link rel="stylesheet" href="css/map.css" />
+    <link rel="stylesheet" href="css/progress.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/final.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+    <!-- Fireworks Canvas for Proposal -->
+    <canvas id="fireworks"></canvas>
+
+    <!-- Landing Screen -->
+    <section
+      id="landing-screen"
+      class="screen active"
+      role="main"
+      aria-label="Welcome screen"
+    >
+      <div class="landing-content">
+        <h1 class="landing-title" id="landing-title"></h1>
+        <p class="landing-description" id="landing-description"></p>
+        <p class="landing-subtitle" id="landing-subtitle"></p>
+
+        <button
+          id="start-btn"
+          class="primary-btn"
+          aria-label="Start exploring our memories"
+        ></button>
+      </div>
+      <div class="petals-container" aria-hidden="true"></div>
+    </section>
+
+    <!-- Map Screen -->
+    <section
+      id="map-screen"
+      class="screen"
+      role="main"
+      aria-label="Memory garden map"
+    >
+      <div class="map-screen-layout">
+        <!-- Header with Progress Bar -->
+        <div class="map-header">
+          <div
+            class="progress-container"
+            role="region"
+            aria-label="Memory completion progress"
+          >
+            <div class="progress-info">
+              <div class="progress-text">
+                <span class="progress-subtitle" id="progress-subtitle"
+                  >Begin your journey through our memories...</span
+                >
+              </div>
+              <div class="progress-bar-row">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  aria-valuenow="0"
+                >
+                  <div class="progress-fill" id="progress-fill"></div>
+                </div>
+                <span
+                  class="progress-counter"
+                  id="progress-counter"
+                  aria-live="polite"
+                  >0/0</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bounded Map Viewport -->
+        <div class="map-viewport">
+          <!-- Zoom Controls -->
+          <div class="zoom-controls">
+            <button
+              id="zoom-in-btn"
+              class="zoom-btn"
+              aria-label="Zoom in"
+              title="Zoom in"
+            >
+              +
+            </button>
+            <button
+              id="zoom-out-btn"
+              class="zoom-btn"
+              aria-label="Zoom out"
+              title="Zoom out"
+            >
+              −
+            </button>
+            <button
+              id="reset-zoom-btn"
+              class="zoom-btn"
+              aria-label="Reset zoom"
+              title="Reset view"
+            >
+              ⟲
+            </button>
+          </div>
+
+          <!-- Garden Map Container -->
+          <div id="map-container" class="map-container">
+            <div id="garden-map" class="garden-map"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="petals-container" aria-hidden="true"></div>
+    </section>
+
+    <!-- Memory Modal -->
+    <div
+      id="memory-modal"
+      class="modal"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      hidden
+    >
+      <div class="modal-backdrop" aria-hidden="true"></div>
+      <div class="modal-content">
+        <button
+          id="modal-close-btn"
+          class="modal-close"
+          aria-label="Close memory"
+        >
+          ×
+        </button>
+
+        <div class="modal-body">
+          <h2 id="modal-title" class="modal-title"></h2>
+          <p id="modal-caption" class="modal-caption"></p>
+          <!-- Media Container (Image Carousel or Video) -->
+          <div id="media-container" class="media-container">
+            <!-- Image Carousel -->
+            <div id="carousel" class="carousel" hidden>
+              <button
+                class="carousel-btn carousel-prev"
+                aria-label="Previous image"
+              >
+                ‹
+              </button>
+              <div class="carousel-track-container">
+                <div class="carousel-track"></div>
+              </div>
+              <button
+                class="carousel-btn carousel-next"
+                aria-label="Next image"
+              >
+                ›
+              </button>
+              <div
+                class="carousel-dots"
+                role="tablist"
+                aria-label="Image navigation"
+              ></div>
+            </div>
+
+            <!-- Video Player -->
+            <div id="video-player" class="video-player" hidden>
+              <video id="memory-video" controls playsinline>
+                <source src="" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Final Reveal Screen -->
+    <section
+      id="final-screen"
+      class="screen"
+      role="main"
+      aria-label="Final message"
+    >
+      <div class="final-content">
+        <!-- NEW PROPOSAL CONTENT -->
+        <div class="final-card" id="proposal-card">
+          <!-- Initial Proposal Question State -->
+          <div id="proposal-question-state">
+            <h1 class="final-title" id="final-title"></h1>
+            <div class="final-message" id="final-body"></div>
+            <div class="proposal-question" id="final-question"></div>
+            <div class="proposal-hamster" id="proposal-hamster">
+              <img id="proposal-sad-img" src="" alt="Waiting for answer" />
+            </div>
+            <div class="proposal-buttons">
+              <button
+                id="proposal-yes-btn"
+                class="proposal-btn proposal-btn-yes"
+              ></button>
+              <button id="proposal-no-btn" class="proposal-btn proposal-btn-no">
+              </button>
+            </div>
+          </div>
+
+          <!-- Success State (hidden by default) -->
+          <div id="proposal-success-state" style="display: none">
+            <div class="proposal-hamster happy">
+              <img id="proposal-happy-img" src="" alt="Celebration" />
+            </div>
+            <h2 class="proposal-success-title" id="final-success-title"></h2>
+          </div>
+        </div>
+      </div>
+      <div
+        class="celebration-container"
+        id="celebration"
+        aria-hidden="true"
+        hidden
+      ></div>
+      <div class="petals-container intense" aria-hidden="true"></div>
+    </section>
+
+    <!-- Development Mode Position Picker -->
+    <div id="dev-mode-indicator" class="dev-mode" hidden>
+      <p>DEV MODE: Click map to log coordinates</p>
+      <div id="dev-coordinates"></div>
+      <button
+        id="dev-reset-btn"
+        class="dev-reset-btn"
+        style="
+          margin-top: 10px;
+          padding: 8px 16px;
+          background: #ff4444;
+          color: white;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        "
+      >
+        Reset Progress
+      </button>
+    </div>
+
+    <!-- Scripts -->
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

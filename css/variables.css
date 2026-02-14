@@ -1,0 +1,82 @@
+/* Design System Variables */
+:root {
+    /* Colors - Rose Garden Palette */
+    --color-rose-pink: #F4A7B9;
+    --color-soft-red: #E63950;
+    --color-blush: #FFE4EC;
+    --color-leaf-green: #6DAA81;
+    --color-cream: #FFF7F9;
+    --color-dark-green: #4A7C59;
+    --color-deep-rose: #C7385F;
+
+    /* Neutral Colors */
+    --color-white: #FFFFFF;
+    --color-black: #1A1A1A;
+    --color-gray-light: #F5F5F5;
+    --color-gray-medium: #CCCCCC;
+    --color-gray-dark: #666666;
+
+    /* Gradient */
+    --gradient-romantic: linear-gradient(135deg, var(--color-blush) 0%, var(--color-cream) 50%, var(--color-rose-pink) 100%);
+    --gradient-dark: linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.8) 100%);
+
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    /* Font Sizes */
+    --font-size-xs: 0.75rem;      /* 12px */
+    --font-size-sm: 0.875rem;     /* 14px */
+    --font-size-base: 1rem;       /* 16px */
+    --font-size-lg: 1.125rem;     /* 18px */
+    --font-size-xl: 1.25rem;      /* 20px */
+    --font-size-2xl: 1.5rem;      /* 24px */
+    --font-size-3xl: 2rem;        /* 32px */
+    --font-size-4xl: 2.5rem;      /* 40px */
+    --font-size-5xl: 3rem;        /* 48px */
+    --font-size-6xl: 3.75rem;     /* 60px */
+
+    /* Spacing Scale */
+    --space-xs: 0.25rem;   /* 4px */
+    --space-sm: 0.5rem;    /* 8px */
+    --space-md: 1rem;      /* 16px */
+    --space-lg: 1.5rem;    /* 24px */
+    --space-xl: 2rem;      /* 32px */
+    --space-2xl: 3rem;     /* 48px */
+    --space-3xl: 4rem;     /* 64px */
+    --space-4xl: 6rem;     /* 96px */
+
+    /* Border Radius */
+    --radius-sm: 0.25rem;   /* 4px */
+    --radius-md: 0.5rem;    /* 8px */
+    --radius-lg: 1rem;      /* 16px */
+    --radius-xl: 1.5rem;    /* 24px */
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+    --shadow-2xl: 0 25px 50px rgba(0, 0, 0, 0.25);
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 400ms ease;
+    --transition-slowest: 600ms ease;
+
+    /* Z-index Scale */
+    --z-base: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-modal-backdrop: 900;
+    --z-modal: 1000;
+    --z-tooltip: 1100;
+
+    /* Pin States */
+    --pin-size-base: 40px;
+    --pin-size-hover: 48px;
+    --pin-glow: 0 0 20px rgba(244, 167, 185, 0.6);
+    --pin-pulse: 0 0 30px rgba(230, 57, 80, 0.8);
+}

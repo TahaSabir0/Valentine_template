@@ -1,0 +1,381 @@
+/* Final Reveal Screen Styles */
+
+#final-screen {
+    background: var(--gradient-dark), var(--gradient-romantic);
+    background-blend-mode: multiply;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.final-content {
+    text-align: center;
+    max-width: 700px;
+    padding: var(--space-2xl);
+    z-index: var(--z-base);
+}
+
+.final-content.ready {
+    animation: scaleFadeIn 1.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.final-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius-xl);
+    padding: var(--space-3xl);
+    box-shadow: var(--shadow-2xl);
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.final-content.ready .final-card {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.final-title {
+    font-size: var(--font-size-4xl);
+    color: var(--color-soft-red);
+    margin-bottom: var(--space-xl);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.final-content.ready .final-title {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+.final-message {
+    margin-bottom: var(--space-md);
+}
+
+.final-message p {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: var(--font-size-lg);
+    color: var(--color-gray-dark);
+    line-height: 1.6;
+    margin-bottom: var(--space-xs);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.final-content.ready .final-message p {
+    animation: slideUp 0.8s ease-out 0.4s both;
+}
+
+.final-question {
+    font-size: var(--font-size-2xl);
+    font-family: var(--font-heading);
+    color: var(--color-deep-rose);
+    font-weight: 600;
+    font-style: italic;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.final-content.ready .final-question {
+    animation: slideUp 0.8s ease-out 0.6s both;
+}
+
+.final-btn {
+    font-size: var(--font-size-xl);
+    padding: var(--space-lg) var(--space-3xl);
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.final-content.ready .final-btn {
+    animation: slideUp 0.8s ease-out 0.8s both;
+}
+
+/* Celebration Animation */
+.celebration-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: var(--z-modal);
+}
+
+.celebration-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    top: -20px;
+}
+
+/* Success Message After Yes */
+.success-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.success-message-inner {
+    background: var(--color-white);
+    padding: var(--space-3xl);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-2xl);
+    pointer-events: auto;
+    text-align: center;
+    opacity: 0;
+    animation: successFadeIn 0.6s ease-out forwards;
+}
+
+@keyframes successFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.success-message-inner h2 {
+    font-size: var(--font-size-4xl);
+    color: var(--color-soft-red);
+    margin-bottom: var(--space-md);
+}
+
+.success-message-inner p {
+    font-size: var(--font-size-xl);
+    color: var(--color-deep-rose);
+}
+
+/* Intense Petals for Final Screen */
+.petals-container.intense .petal {
+    animation-duration: 6s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .final-content {
+        padding: var(--space-xl);
+    }
+
+    .final-card {
+        padding: var(--space-2xl);
+    }
+
+    .final-title {
+        font-size: var(--font-size-3xl);
+    }
+
+    .final-message p {
+        font-size: var(--font-size-base);
+    }
+
+    .final-question {
+        font-size: var(--font-size-xl);
+    }
+
+    .final-btn {
+        font-size: var(--font-size-lg);
+        padding: var(--space-md) var(--space-2xl);
+    }
+}
+
+@media (max-width: 480px) {
+    .final-content {
+        padding: var(--space-lg);
+    }
+
+    .final-card {
+        padding: var(--space-xl);
+    }
+
+    .final-title {
+        font-size: var(--font-size-2xl);
+    }
+
+    .final-message p {
+        font-size: var(--font-size-sm);
+    }
+
+    .final-question {
+        font-size: var(--font-size-lg);
+    }
+
+    .success-message-inner {
+        padding: var(--space-2xl);
+        margin: var(--space-lg);
+    }
+
+    .success-message-inner h2 {
+        font-size: var(--font-size-3xl);
+    }
+
+    .success-message-inner p {
+        font-size: var(--font-size-lg);
+    }
+}
+
+/* ============================================================
+   PROPOSAL STYLES ON FINAL SCREEN
+   ============================================================ */
+
+/* Proposal Question */
+#final-screen .proposal-question {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    color: #be185d;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.final-content.ready .proposal-question {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+/* Hamster Image */
+#final-screen .proposal-hamster {
+    width: 200px;
+    height: 200px;
+    margin: 1rem auto 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.final-content.ready .proposal-hamster {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.8s ease-out 0.4s both;
+}
+
+#final-screen .proposal-hamster img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
+
+/* Happy Hamster Bounce Animation */
+#final-screen .proposal-hamster.happy img {
+    animation: hamsterBounce 0.5s ease infinite alternate;
+}
+
+@keyframes hamsterBounce {
+    from { transform: translateY(0); }
+    to { transform: translateY(-20px); }
+}
+
+/* Button Group */
+#final-screen .proposal-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.final-content.ready .proposal-buttons {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.8s ease-out 0.6s both;
+}
+
+#final-screen .proposal-btn {
+    padding: 0.875rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: white;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    font-family: 'Playfair Display', serif;
+    position: relative;
+}
+
+#final-screen .proposal-btn-yes {
+    background: linear-gradient(to right, #ec4899, #f43f5e);
+}
+
+#final-screen .proposal-btn-yes:hover {
+    background: linear-gradient(to right, #db2777, #e11d48);
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(236, 72, 153, 0.4);
+}
+
+#final-screen .proposal-btn-no {
+    background: linear-gradient(to right, #6b7280, #4b5563);
+    transition: left 0.3s ease, top 0.3s ease;
+}
+
+/* Success State */
+#final-screen .proposal-success-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    color: #be185d;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.final-content.ready .proposal-success-title {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.8s ease-out 0.2s both;
+}
+
+#final-screen .proposal-success-subtitle {
+    font-size: 1.1rem;
+    color: #9d174d;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.final-content.ready .proposal-success-subtitle {
+    opacity: 1;
+    transform: translateY(0);
+    animation: slideUp 0.8s ease-out 0.4s both;
+}
+
+/* Hide question state when success is shown - JS adds this class */
+#proposal-question-state.hidden {
+    display: none !important;
+    opacity: 0 !important;
+}
+
+/* When proposal is accepted, hide the question state completely */
+#proposal-card.proposal-accepted #proposal-question-state {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Also hide via adjacent selector when success is visible */
+#proposal-card:has(#proposal-success-state:not([style*="display: none"])) #proposal-question-state {
+    display: none !important;
+}

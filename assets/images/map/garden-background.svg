@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2000 1500" width="2000" height="1500">
+  <!-- Gradient Background -->
+  <defs>
+    <radialGradient id="skyGradient" cx="50%" cy="30%">
+      <stop offset="0%" style="stop-color:#FFE4EC;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFF7F9;stop-opacity:1" />
+    </radialGradient>
+
+    <radialGradient id="groundGradient" cx="50%" cy="100%">
+      <stop offset="0%" style="stop-color:#E8F5E9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C8E6C9;stop-opacity:1" />
+    </radialGradient>
+
+    <!-- Leaf pattern -->
+    <g id="leaf">
+      <ellipse cx="0" cy="0" rx="8" ry="15" fill="#6DAA81" opacity="0.6"/>
+    </g>
+
+    <!-- Rose bush pattern -->
+    <g id="roseBush">
+      <ellipse cx="0" cy="0" rx="40" ry="35" fill="#4A7C59" opacity="0.3"/>
+      <ellipse cx="-15" cy="5" rx="25" ry="20" fill="#6DAA81" opacity="0.4"/>
+      <ellipse cx="15" cy="5" rx="25" ry="20" fill="#6DAA81" opacity="0.4"/>
+    </g>
+  </defs>
+
+  <!-- Sky Background -->
+  <rect width="2000" height="900" fill="url(#skyGradient)"/>
+
+  <!-- Ground -->
+  <ellipse cx="1000" cy="1200" rx="1200" ry="400" fill="url(#groundGradient)"/>
+
+  <!-- Garden Path -->
+  <path d="M 400 1400 Q 600 1100, 800 900 T 1200 500 T 1600 300"
+        fill="none" stroke="#D4A574" stroke-width="80" opacity="0.4"/>
+  <path d="M 400 1400 Q 600 1100, 800 900 T 1200 500 T 1600 300"
+        fill="none" stroke="#E6C9A8" stroke-width="60" opacity="0.6"/>
+
+  <!-- Decorative Rose Bushes (background) -->
+  <use href="#roseBush" x="200" y="800" transform="scale(1.2)"/>
+  <use href="#roseBush" x="1800" y="900" transform="scale(1.3)"/>
+  <use href="#roseBush" x="300" y="1100" transform="scale(0.9)"/>
+  <use href="#roseBush" x="1700" y="1200" transform="scale(1.1)"/>
+
+  <!-- Scattered Leaves -->
+  <use href="#leaf" x="150" y="700" transform="rotate(45)"/>
+  <use href="#leaf" x="1850" y="750" transform="rotate(-30)"/>
+  <use href="#leaf" x="400" y="950" transform="rotate(60)"/>
+  <use href="#leaf" x="1600" y="1000" transform="rotate(-45)"/>
+  <use href="#leaf" x="250" y="1250" transform="rotate(15)"/>
+  <use href="#leaf" x="1750" y="1300" transform="rotate(-60)"/>
+
+  <!-- Light Grass Tufts -->
+  <g opacity="0.4">
+    <ellipse cx="500" cy="1350" rx="30" ry="10" fill="#6DAA81"/>
+    <ellipse cx="900" cy="1320" rx="25" ry="8" fill="#6DAA81"/>
+    <ellipse cx="1300" cy="1380" rx="35" ry="12" fill="#6DAA81"/>
+    <ellipse cx="1600" cy="1400" rx="28" ry="9" fill="#6DAA81"/>
+  </g>
+
+  <!-- Decorative Flowers (small details) -->
+  <g opacity="0.5">
+    <!-- Small pink flowers scattered around -->
+    <circle cx="350" cy="1000" r="6" fill="#F4A7B9"/>
+    <circle cx="360" cy="995" r="6" fill="#F4A7B9"/>
+    <circle cx="355" cy="1005" r="6" fill="#F4A7B9"/>
+
+    <circle cx="1650" cy="1100" r="5" fill="#FFE4EC"/>
+    <circle cx="1658" cy="1095" r="5" fill="#FFE4EC"/>
+    <circle cx="1655" cy="1105" r="5" fill="#FFE4EC"/>
+
+    <circle cx="700" cy="1250" r="7" fill="#E63950"/>
+    <circle cx="710" cy="1245" r="7" fill="#E63950"/>
+    <circle cx="705" cy="1257" r="7" fill="#E63950"/>
+  </g>
+
+  <!-- Foreground Elements -->
+  <g opacity="0.6">
+    <!-- Bottom left corner bush -->
+    <ellipse cx="100" cy="1450" rx="80" ry="60" fill="#4A7C59"/>
+    <ellipse cx="120" cy="1430" rx="60" ry="45" fill="#6DAA81"/>
+
+    <!-- Bottom right corner bush -->
+    <ellipse cx="1900" cy="1480" rx="90" ry="65" fill="#4A7C59"/>
+    <ellipse cx="1880" cy="1455" rx="70" ry="50" fill="#6DAA81"/>
+  </g>
+
+  <!-- Subtle Texture Overlay -->
+  <rect width="2000" height="1500" fill="white" opacity="0.02"/>
+</svg>

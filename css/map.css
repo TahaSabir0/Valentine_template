@@ -1,0 +1,198 @@
+/* Map Screen Styles - Leaflet.js Integration */
+
+#map-screen {
+  position: relative;
+  min-height: 100vh;
+  background: var(--color-cream);
+  display: flex;
+  flex-direction: column;
+}
+
+.map-screen-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+}
+
+/* Header Section */
+.map-header {
+  flex-shrink: 0;
+  padding: var(--space-xl) var(--space-2xl);
+  background: var(--color-white);
+  border-bottom: 2px solid var(--color-blush);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: var(--z-sticky);
+}
+
+/* Map Viewport - Bounded Container for Leaflet */
+.map-viewport {
+  flex: 1;
+  margin: var(--space-xl) var(--space-2xl);
+  border: 3px solid var(--color-rose-pink);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  background: var(--color-white);
+  box-shadow: var(--shadow-lg);
+}
+
+.map-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Leaflet Map */
+.garden-map {
+  width: 100%;
+  height: 100%;
+  background: #e5e5e5; /* Light gray fallback while tiles load */
+}
+
+/* Override Leaflet default styles to match theme */
+.leaflet-container {
+  background: #e5e5e5;
+  font-family: var(--font-body);
+}
+
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.9);
+  font-size: 10px;
+}
+
+/* Leaflet Popup Styles */
+.leaflet-popup-content-wrapper {
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+}
+
+.leaflet-popup-tip {
+  box-shadow: var(--shadow-md);
+}
+
+/* Custom Rose Marker Styles - Let Leaflet handle all positioning */
+.rose-marker-icon {
+  background: transparent !important;
+  border: none !important;
+}
+
+.rose-marker-icon > div {
+  /* Leaflet positions the icon, this is just the inner style */
+}
+
+.rose-marker-locked {
+  opacity: 0.6;
+}
+
+.rose-marker-unlocked {
+  /* No animations */
+}
+
+.rose-marker-completed {
+  /* No animations */
+}
+
+/* Don't interfere with Leaflet's marker positioning at all */
+
+/* Zoom Controls */
+.zoom-controls {
+  position: absolute;
+  bottom: var(--space-lg);
+  right: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  z-index: var(--z-sticky);
+}
+
+.zoom-btn {
+  width: 48px;
+  height: 48px;
+  background: var(--color-white);
+  border: 2px solid var(--color-rose-pink);
+  border-radius: var(--radius-md);
+  color: var(--color-soft-red);
+  font-size: var(--font-size-2xl);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+}
+
+.zoom-btn:hover {
+  background: var(--color-rose-pink);
+  color: var(--color-white);
+}
+
+.zoom-btn:focus-visible {
+  outline: 3px solid var(--color-soft-red);
+  outline-offset: 2px;
+}
+
+/* Development Mode */
+.dev-mode {
+  position: fixed;
+  top: 80px;
+  left: var(--space-lg);
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--color-white);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  font-family: monospace;
+  font-size: var(--font-size-sm);
+  z-index: var(--z-modal);
+}
+
+#dev-coordinates {
+  margin-top: var(--space-sm);
+  color: var(--color-rose-pink);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .map-header {
+    padding: var(--space-md) var(--space-lg);
+  }
+
+  .map-viewport {
+    margin: var(--space-lg) var(--space-xl);
+    border-width: 2px;
+  }
+
+  .zoom-controls {
+    bottom: var(--space-md);
+    right: var(--space-md);
+    gap: var(--space-xs);
+  }
+
+  .zoom-btn {
+    width: 40px;
+    height: 40px;
+    font-size: var(--font-size-xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .map-header {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .map-viewport {
+    margin: var(--space-md) var(--space-lg);
+    border-radius: var(--radius-md);
+  }
+
+  .zoom-controls {
+    bottom: var(--space-sm);
+    right: var(--space-sm);
+  }
+
+  .zoom-btn {
+    width: 36px;
+    height: 36px;
+    font-size: var(--font-size-lg);
+  }
+}
