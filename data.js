@@ -125,10 +125,8 @@ export const unlockRules = null; // null = automatic sequential order
 export const progressSubtitles = {
   0: "Begin your journey through our memories...",
   1: "The first rose begins to bloom...",
-  3: "Our story is unfolding beautifully...",
-  5: "Halfway through our garden of memories...",
-  7: "So many cherished moments together...",
-  9: "One final rose remains... the most important one",
+  2: "Our story is unfolding beautifully...",
+  3: "One final rose remains...",
 };
 
 // ------------------------------------------------------------
@@ -138,16 +136,16 @@ export const progressSubtitles = {
 // The "body" array is a list of paragraphs shown one by one.
 
 export const finalMessage = {
-  title: "The Last Memory...",
+  title: "One Last Thing...",
   body: [
-    "I've saved all these memories of us together, but the last one...",
-    "The last memory is the one we get to create together.",
-    "So...",
+    "Every memory here is one I hold close to my heart.",
+    "But the best one hasn't happened yet...",
+    "So I have to ask...",
   ],
   question: "Will you be my Valentine?",
-  yesButton: "Yes, I will!",
-  noButton: "No, I won't",
-  successTitle: "YAYYYYYYY",
+  yesButton: "Yes!",
+  noButton: "No",
+  successTitle: "I knew you'd say yes!",
   // Images for the proposal screen (sad = before answer, happy = after yes)
   // Replace with your own images, or leave these defaults.
   sadImage: "assets/sad_hamster.png",
