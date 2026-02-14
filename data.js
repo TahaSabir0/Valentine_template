@@ -11,9 +11,9 @@
 // This is what the user sees first when they open the page.
 
 export const landing = {
-  title: "My Dearest [Name],",
-  description: "I made something special for you...",
-  subtitle: "I've planted a garden of our memories...",
+  title: "Dear [Name],",
+  description: "I put together something for you that I think you'll really like.",
+  subtitle: "I've planted a garden of our memories together...",
   buttonText: "Start Exploring",
 };
 
@@ -44,36 +44,36 @@ export const landing = {
 export const memories = [
   {
     id: 1,
-    title: "Memory 1 Title",
+    title: "Our First Date",
     mediaType: "video",
     media: ["assets/memories/memory_1/video.mp4"],
-    caption: "Describe this memory...",
-    position: { lat: 39.8365, lng: -77.2330 },
+    caption: "The night that started it all",
+    position: { lat: 40.752327936017416, lng: -73.99239717367959 },
     unlocked: true,
     completed: false,
   },
   {
     id: 2,
-    title: "Memory 2 Title",
+    title: "That One Adventure",
     mediaType: "images",
     media: [
       "assets/memories/memory_2/photo1.jpg",
       "assets/memories/memory_2/photo2.jpg",
     ],
-    caption: "Describe this memory...",
-    position: { lat: 39.8367, lng: -77.2324 },
+    caption: "We got lost but it was worth every wrong turn",
+    position: { lat: 40.74641786769513, lng: -73.98395900363204 },
     unlocked: false,
     completed: false,
   },
   {
     id: 3,
-    title: "Memory 3 Title",
+    title: "A Night to Remember",
     mediaType: "images",
     media: [
       "assets/memories/memory_3/photo1.jpg",
     ],
-    caption: "Describe this memory...",
-    position: { lat: 39.8333, lng: -77.2340 },
+    caption: "One of those nights I never want to forget",
+    position: { lat: 40.74320932492191, lng: -73.99589981030311 },
     unlocked: false,
     completed: false,
   },
@@ -92,7 +92,7 @@ export const memories = [
     specialType: "proposal",
     media: [],
     caption: "",
-    position: { lat: 39.8344, lng: -77.2337 },
+    position: { lat: 40.75191786660343, lng: -73.98169821090231 },
     unlocked: false,
     completed: false,
   },
@@ -165,7 +165,7 @@ export const config = {
   enableDevMode: false, // Set to true or use ?dev=true in URL
   map: {
     // Center of the map - set this to the middle of your memory locations
-    center: { lat: 39.8344, lng: -77.2337 },
+    center: { lat: 40.74967450093003, lng: -73.98949953792743 },
     zoom: 16,
     minZoom: 14,
     maxZoom: 19,
